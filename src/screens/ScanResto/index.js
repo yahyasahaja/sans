@@ -10,7 +10,7 @@ import TopBar from '../../components/TopBar'
 
 //COMPONENT
 export default class RestoScan extends Component {
-  handleScan(data) {
+  handleScan = data => {
     if (data) {
       console.log(data)
       this.setState({
