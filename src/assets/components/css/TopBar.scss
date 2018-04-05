@@ -1,0 +1,32 @@
+.header {
+    background-color: white;
+    height: 103px;
+    padding: 20px;
+    color: black;
+    text-align: left;
+    
+    .resto {
+      float: left;
+
+      .title {
+        font-size: 40px;
+        font-weight: 900;
+      }
+  
+      .sub {
+        margin-top: -10px;
+        font-size: 13px;
+        font-weight: 100;
+        opacity: 0.6;
+      }
+    }
+
+    .user {
+      text-align: right;
+      float: right;
+      font-size: 15px;
+      font-weight: 300;
+      padding-top: 8px;
+      opacity: 0.8;
+    }
+  }

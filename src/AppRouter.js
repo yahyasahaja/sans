@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import axios from 'axios'
 
 //SCREENS
-import Home from './screens/Home'
+import Menu from './screens/Menu'
 
 //CONFIG
 import {
@@ -25,7 +25,7 @@ export default class AppRouter extends Component {
     return (
       <BrowserRouter>
         <Switch>
-          <Route path="/" component={Home} />
+          <Route path="/" component={Menu} />
         </Switch>
       </BrowserRouter>
     )
