@@ -1,11 +1,11 @@
 //MODULES
 import React, { Component } from 'react'
 import Link from 'react-toolbox/lib/link'
-import { Card, CardMedia, CardTitle, CardText, CardActions } from 'react-toolbox/lib/card'
-import { Button, IconButton } from 'react-toolbox/lib/button';
+import { CardActions } from 'react-toolbox/lib/card'
+import { IconButton } from 'react-toolbox/lib/button'
 
 //ASSETS
-import TopBar from '../../assets/components/TopBar'
+import TopBar from '../../components/TopBar'
 
 //STYLES
 import styles from './css/index.scss'
@@ -13,7 +13,7 @@ import styles from './css/index.scss'
 //COMPONENT
 class App extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       title: 'Sans Resto',
       sub: 'Jalan Veteran Nomor 10, Malang (083243785475)',
@@ -43,19 +43,19 @@ class App extends Component {
             <div className={styles.box}>
               <div
                 className={styles.title}
-                >
+              >
                 <img className={styles.imgMenu} src="https://placeimg.com/80/80/animals" />
                 Sate Ayam
                 <div
                   className={styles.sub}
-                  >
+                >
                   10 tusuk
                 </div>
                 <div
                   className={styles.prices}
                 >
                   Rp. 15.000
-              </div>
+                </div>
               </div>
               <div className={styles.add}>
                 1
@@ -66,19 +66,19 @@ class App extends Component {
             <div className={styles.box}>
               <div
                 className={styles.title}
-                >
+              >
                 <img className={styles.imgMenu} src="https://placeimg.com/80/80/animals" />
                 Sate Ayam
                 <div
                   className={styles.sub}
-                  >
+                >
                   10 tusuk
                 </div>
                 <div
                   className={styles.prices}
                 >
                   Rp. 15.000
-              </div>
+                </div>
               </div>
               <div className={styles.add}>
                 1
@@ -89,19 +89,19 @@ class App extends Component {
             <div className={styles.box}>
               <div
                 className={styles.title}
-                >
+              >
                 <img className={styles.imgMenu} src="https://placeimg.com/80/80/animals" />
                 Sate Ayam
                 <div
                   className={styles.sub}
-                  >
+                >
                   10 tusuk
                 </div>
                 <div
                   className={styles.prices}
                 >
                   Rp. 15.000
-              </div>
+                </div>
               </div>
               <div className={styles.add}>
                 1

@@ -1,0 +1,18 @@
+{
+  "id": "0",
+  "slug": "resto_sans",
+  "name": "Resto Sans",
+  "description": "Jalan Veteran No. 08 Malang, (085851851276)",
+  "menu": [
+    {
+      "id": "0",
+      "name": "Sate Ayam",
+      "description": "10 Tusuk",
+      "price": 15000,
+      "image_url": "/static/img/sate.png",
+      "category": [
+        "special"
+      ]
+    }
+  ]
+}
