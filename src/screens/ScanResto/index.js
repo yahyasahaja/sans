@@ -46,7 +46,7 @@ export default class RestoScan extends Component {
             delay={this.state.delay}
             onError={this.handleError}
             onScan={this.handleScan}
-            style={{ width: '100%' }}
+            style={{ width: '100%', }}
           />
         </div>
       </Fragment>

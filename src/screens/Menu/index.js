@@ -1,17 +1,25 @@
 //MODULES
-import React, { Component } from 'react'
-import Link from 'react-toolbox/lib/link'
-import { CardActions } from 'react-toolbox/lib/card'
-import { IconButton } from 'react-toolbox/lib/button'
+import React, { Component, Fragment } from 'react'
+import _ from 'lodash'
+import axios from 'axios'
 
 //ASSETS
 import TopBar from '../../components/TopBar'
+import LeftBar from '../../components/LeftBar'
+import Menu from '../../components/Menu'
+import BottomBar from '../../components/BottomBar'
 
 //STYLES
 import styles from './css/index.scss'
 
 //COMPONENT
 class App extends Component {
+  componentDidMount() {
+    axios.get('/static/json/menu.json').then(res => {
+      this.setState({menu: res.data})
+    })
+  }
+
   constructor(props) {
     super(props)
     this.state = {
@@ -19,102 +27,77 @@ class App extends Component {
       sub: 'Jalan Veteran Nomor 10, Malang (083243785475)',
       status1: 'Mr. Zain',
       status2: 'No. 14',
+      image: '/static/img/sate.png',
+      menu: null,
+      selectedMenus: []
     }
+  }
+
+  toggleAdd = (menu) => {
+    let { selectedMenus } = this.state
+    let exist = false
+    let indexToBeDeleted
+    console.log('AWAL', selectedMenus)
+
+    for (let i in selectedMenus) {
+      if (selectedMenus[i].id === menu.id) {
+        exist = true
+        indexToBeDeleted = i
+        break
+      }
+    }
+    console.log('ATAS', selectedMenus, [...selectedMenus, menu])
+    if (!exist)
+      this.setState({selectedMenus: [...selectedMenus, menu]})
+    else {
+      selectedMenus.splice(indexToBeDeleted, 1)
+      this.setState({selectedMenus: selectedMenus.slice()})
+    }
+
+    console.log([...selectedMenus, menu])
+  }
+
+  renderMenu () {
+    if (!this.state.menu) return
+
+    return _.map(this.state.menu, (data, i) => 
+      <Menu
+        key={i}
+        image={data.image_url}
+        title={data.name}
+        sub={data.description}
+        add={data.add}
+        price={data.price}
+        data={data}
+        toggleAdd={this.toggleAdd}
+      />
+    )
   }
 
   render() {
     return (
-      <div className={styles.container}>
-        <TopBar
-          title={this.state.title}
-          sub={this.state.sub}
-          status1={this.state.status1}
-          status2={this.state.status2}
-        />
-        <hr />
-        <div className={styles.content} >
-          <CardActions className={styles.leftBar} >
-            <Link className={styles.categories} href='#' active label='Special' />
-            <Link className={styles.categories} href='#' label='Soups' />
-            <Link className={styles.categories} href='#' label='Pasta' />
-          </CardActions>
+      <Fragment>
+        <div className={styles.container}>
+          
+          <TopBar
+            title={this.state.title}
+            sub={this.state.sub}
+            status1={this.state.status1}
+            status2={this.state.status2}
+          />
 
-          <div className={styles.menu}>
-            <div className={styles.box}>
-              <div
-                className={styles.title}
-              >
-                <img className={styles.imgMenu} src="https://placeimg.com/80/80/animals" />
-                Sate Ayam
-                <div
-                  className={styles.sub}
-                >
-                  10 tusuk
-                </div>
-                <div
-                  className={styles.prices}
-                >
-                  Rp. 15.000
-                </div>
-              </div>
-              <div className={styles.add}>
-                1
-                <IconButton icon='add' style={{ color: 'green', marginTop: '-5px', marginLeft: '5px' }} />
-              </div>
-            </div>
+          <LeftBar />
 
-            <div className={styles.box}>
-              <div
-                className={styles.title}
-              >
-                <img className={styles.imgMenu} src="https://placeimg.com/80/80/animals" />
-                Sate Ayam
-                <div
-                  className={styles.sub}
-                >
-                  10 tusuk
-                </div>
-                <div
-                  className={styles.prices}
-                >
-                  Rp. 15.000
-                </div>
-              </div>
-              <div className={styles.add}>
-                1
-                <IconButton icon='add' style={{ color: 'green', marginTop: '-5px', marginLeft: '5px' }} />
-              </div>
-            </div>
-
-            <div className={styles.box}>
-              <div
-                className={styles.title}
-              >
-                <img className={styles.imgMenu} src="https://placeimg.com/80/80/animals" />
-                Sate Ayam
-                <div
-                  className={styles.sub}
-                >
-                  10 tusuk
-                </div>
-                <div
-                  className={styles.prices}
-                >
-                  Rp. 15.000
-                </div>
-              </div>
-              <div className={styles.add}>
-                1
-                <IconButton icon='add' style={{ color: 'green', marginTop: '-5px', marginLeft: '5px' }} />
-              </div>
-            </div>
-
+          <div className={styles.content} >
+            {this.renderMenu()}
           </div>
+          
+          <BottomBar 
+            image={this.state.image}
+          />
 
         </div>
-
-
-      </div>
+      </Fragment>
     )
   }
 }

@@ -1,0 +1,24 @@
+[
+  {
+    "id": "0",
+    "name": "Sate Ayam",
+    "description": "10 Tusuk",
+    "price": 15000,
+    "image_url": "/static/img/sate.png",
+    "category": [
+      "special"
+    ],
+    "add": null
+  },
+  {
+    "id": "0",
+    "name": "Sate Ayam",
+    "description": "10 Tusuk",
+    "price": 15000,
+    "image_url": "/static/img/sate.png",
+    "category": [
+      "special"
+    ],
+    "add": null
+  }
+]

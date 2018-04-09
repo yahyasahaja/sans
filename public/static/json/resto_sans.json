@@ -12,7 +12,8 @@
       "image_url": "/static/img/sate.png",
       "category": [
         "special"
-      ]
+      ],
+      "add": null
     }
   ]
 }

@@ -1,9 +1,18 @@
-.header {
+.container {
+  display: block;
+  position: fixed;
+  width: 480px;
+  max-width: 100%;
+  min-width: 375px;
+  z-index: 1;
+
+  .header {
     background-color: white;
     height: 103px;
     padding: 20px;
     color: black;
     text-align: left;
+    width: 100%;
     
     .resto {
       float: left;
@@ -30,3 +39,4 @@
       opacity: 0.8;
     }
   }
+}
