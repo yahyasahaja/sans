@@ -4,76 +4,11 @@
   margin: auto;
   display: block;
   background-color: white;
+  height: 100%;
+  z-index: -1;
 
   .content {
-    display: flex;
-
-    .leftBar {
-      text-align: left;
-      width: 113px;
-      display: inline-block;
-      flex: 1;
-      line-height: 74pt;
-      padding-top: 25px;
-      
-      .categories {
-        padding-bottom: 30pt;
-        font-weight: 700;
-        font-size: 15px;
-        color: green;
-      }
-    }
-  
-    .menu {
-      text-align: left;
-      width: 367px;
-      float: right;
-      flex: 3;
-
-      .imgMenu {
-        float: left;
-        max-width: 40pt;
-        max-height: 40pt;
-        margin-top: 5px;
-        margin-right: 10pt;
-      }
-
-      .box {
-        margin-top: -10pt;
-        margin-bottom: -20px;
-        display: flex;
-        padding-top: 25px;
-      
-        .title {
-          font-weight: 900;
-          font-size: 12pt;
-          color: black;
-          flex: 4;
-        }
-    
-        .sub {
-          font-weight: 100;
-          font-size: 8pt;
-          padding: 0;
-          margin-top: -5px;
-          opacity: 0.8;
-        }
-    
-        .prices {
-          padding-top: 10px;
-          font-weight: 700;
-          font-size: 12px;
-          opacity: 0.8;
-        }
-      } 
-
-      .add {
-        float: right;
-        padding-top: 20px;
-        flex: 1;
-        text-align: center;
-      }
-    }  
+    padding-top: 103px;
   }
 
 }

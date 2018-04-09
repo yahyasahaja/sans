@@ -1,0 +1,50 @@
+.container {
+  
+  position: fixed;
+  width: 480px;
+  max-width: 100%;
+  min-width: 375px;
+  bottom: 0;
+  background-color: black;
+  padding: 5px;
+  height: 52px;
+
+  .imgMenu {
+    float: left;
+    width: 7%;
+    margin: 4pt;
+  }
+
+  .items {
+    float: left;
+    color: white;
+    font-size: 15px;
+    margin-top: 10px;
+    padding-left: 8px;
+    font-weight: 100;
+  }
+
+  .prices {
+    color: white;
+    font-size: 15px;
+    margin-top: 10px;
+    font-weight: 100;
+    position: absolute;
+    right: 0;
+    left: 0;
+    text-decoration: underline;
+    text-underline-position: under;
+    letter-spacing: 1px;
+  }
+
+  .button {
+    right: 0;
+    padding-right: 10px;
+    color: white;
+    margin-top: 10px;
+    font-size: 15px;
+    font-weight: 100; 
+    position: absolute;
+  }
+
+}

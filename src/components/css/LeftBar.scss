@@ -1,0 +1,16 @@
+.leftBar {
+  text-align: left;
+  width: 113px;
+  display: block;
+  flex: 1;
+  line-height: 74pt;
+  padding-top: 135px;
+  position: fixed;
+
+  .categories {
+    padding-bottom: 30pt;
+    font-weight: 700;
+    font-size: 15px;
+    color: green;
+  }
+}
