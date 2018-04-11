@@ -3,9 +3,12 @@ import { RadioGroup, RadioButton } from 'react-toolbox/lib/radio'
 
 //Style
 import styles from './css/index.scss'
+import theme from './css/offline.scss'
+import theme2 from './css/online.scss'
 
 //Asset
 import TopBar from '../../components/TopBar'
+import ButtonBottom from '../../components/ButtonBottom'
 
 export default class PaymentMethod extends Component {
   state = {
@@ -18,6 +21,7 @@ export default class PaymentMethod extends Component {
 
   render() {
     let { name,  } = this.props.data
+    let toLink = `/${this.props.match.params.resto_slug}/detailorder`
 
     return (
       <Fragment>
@@ -30,12 +34,20 @@ export default class PaymentMethod extends Component {
           />
 
           <div className={styles.content} >
-            <h1></h1>
+            <h1 className={styles.header} >
+              Pilih Metode Pembayaran Anda
+            </h1>
             <RadioGroup name='comic' value={this.state.value} onChange={this.handleChange}>
-              <RadioButton label='Offline' value='Offline'/>
-              <RadioButton label='Online' value='Online'/>
+              <RadioButton label='OFFLINE via Cashier' value='Offline' theme={theme} />
+              <RadioButton label='ONLINE by OVO' value='Online' theme={theme2} />
             </RadioGroup>
           </div>
+
+          <ButtonBottom
+            {... this.props}
+            link= {toLink}
+            name= 'NEXT'
+          />          
 
         </div>
       </Fragment>

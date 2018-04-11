@@ -1,0 +1,16 @@
+.field {
+  margin-top: 30px;
+}
+
+.radioChecked {
+  border-color: #287f41;
+}
+
+.radioChecked::before {
+  background-color: #287f41;
+}
+
+.text {
+  color: red;
+  font-size: 18px;
+}

@@ -10,6 +10,7 @@ import ScanTable from './screens/ScanTable'
 import Home from './screens/Home'
 import Checkout from './screens/Checkout'
 import PaymentMethod from './screens/PaymentMethod'
+import DetailOrder from './screens/DetailOrder'
 
 //STYLES
 import styles from './app-router.scss'
@@ -83,6 +84,11 @@ class RestoComponent extends Component {
         <Route 
           path="/:resto_slug/paymentmethod"
           render={props => <PaymentMethod {...props} data={data} />} 
+        />
+
+        <Route 
+          path="/:resto_slug/detailorder"
+          render={props => <DetailOrder {...props} data={data} />} 
         />
 
         <Redirect from="*" exact to={`/${resto_slug}/scanresto`} />
