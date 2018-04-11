@@ -8,17 +8,115 @@
     "category": [
       "special"
     ],
-    "add": null
+    "add": null,
+    "quantity": null
   },
   {
-    "id": "0",
-    "name": "Sate Ayam",
-    "description": "10 Tusuk",
-    "price": 15000,
+    "id": "1",
+    "name": "Soto Lamongan",
+    "description": "Daging",
+    "price": 10000,
     "image_url": "/static/img/sate.png",
     "category": [
       "special"
     ],
-    "add": null
+    "add": null,
+    "quantity": null
+  },
+  {
+    "id": "2",
+    "name": "Ayam Penyet",
+    "description": "Tahu + Tempe",
+    "price": 12000,
+    "image_url": "/static/img/sate.png",
+    "category": [
+      "special"
+    ],
+    "add": null,
+    "quantity": null
+  },
+  {
+    "id": "3",
+    "name": "Bakso Kotak",
+    "description": "Bakso, tahu, dan gorengan",
+    "price": 13000,
+    "image_url": "/static/img/sate.png",
+    "category": [
+      "special"
+    ],
+    "add": null,
+    "quantity": null
+  },
+  {
+    "id": "4",
+    "name": "Kebab Turki",
+    "description": "Daging",
+    "price": 12000,
+    "image_url": "/static/img/sate.png",
+    "category": [
+      "special"
+    ],
+    "add": null,
+    "quantity": null
+  },
+  {
+    "id": "5",
+    "name": "Beef Steak",
+    "description": "Saos Lada Hitam",
+    "price": 17000,
+    "image_url": "/static/img/sate.png",
+    "category": [
+      "special"
+    ],
+    "add": null,
+    "quantity": null
+  },
+  {
+    "id": "6",
+    "name": "Gado Gado",
+    "description": "Spesial",
+    "price": 10000,
+    "image_url": "/static/img/sate.png",
+    "category": [
+      "special"
+    ],
+    "add": null,
+    "quantity": null
+  },
+  {
+    "id": "7",
+    "name": "Bakso Jumbo",
+    "description": "Bakso + Tahu",
+    "price": 14000,
+    "image_url": "/static/img/sate.png",
+    "category": [
+      "special"
+    ],
+    "add": null,
+    "quantity": null
+  },
+  {
+    "id": "8",
+    "name": "Ayam Lalapan",
+    "description": "Ayam + Tempe",
+    "price": 14000,
+    "image_url": "/static/img/sate.png",
+    "category": [
+      "special"
+    ],
+    "add": null,
+    "quantity": null
+  },
+  {
+    "id": "9",
+    "name": "Mie Goreng",
+    "description": "Mie Instan Goreng",
+    "price": 14000,
+    "image_url": "/static/img/sate.png",
+    "category": [
+      "special"
+    ],
+    "add": null,
+    "quantity": null
   }
 ]

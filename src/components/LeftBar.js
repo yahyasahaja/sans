@@ -9,9 +9,11 @@ export default class LeftBar extends Component {
     return (
       <Fragment>
         <CardActions className={styles.leftBar} >
-          <Link className={styles.categories} href='#' active label='Special' />
-          <Link className={styles.categories} href='#' label='Soups' />
-          <Link className={styles.categories} href='#' label='Pasta' />
+          <Link className={styles.categories} href='#' active label='SPECIAL' />
+          <Link className={styles.categories} href='#' label='SOUPS' />
+          <Link className={styles.categories} href='#' label='PASTA' />
+          <Link className={styles.categories} href='#' label='WRAPS' />
+          <Link className={styles.categories} href='#' label='DRINK' />
         </CardActions>
       </Fragment>
     )

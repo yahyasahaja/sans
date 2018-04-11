@@ -7,6 +7,7 @@ import axios from 'axios'
 import Menu from './screens/Menu'
 import ScanResto from './screens/ScanResto'
 import Home from './screens/Home'
+import Checkout from './screens/Checkout'
 
 //STYLES
 import styles from './app-router.scss'
@@ -65,6 +66,11 @@ class RestoComponent extends Component {
         <Route 
           path="/:resto_slug/menu"
           render={props => <Menu {...props} data={data} />} 
+        />
+
+        <Route 
+          path="/:resto_slug/checkout"
+          render={props => <Checkout {...props} data={data} />} 
         />
 
         <Redirect from="*" exact to={`/${resto_slug}/scanresto`} />

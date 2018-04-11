@@ -24,7 +24,7 @@ export default class Menu extends Component {
 
             <a onClick={ () => this.props.toggleAdd(this.props.data) } >
               <div className={styles.add}>
-                {this.props.add}
+                {this.props.quantity}
                 <IconButton icon='add' style={{ color: 'green', marginTop: '-5px', marginLeft: '5px' }} />
               </div>
             </a>

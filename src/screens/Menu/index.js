@@ -28,33 +28,58 @@ class App extends Component {
       status1: 'Mr. Zain',
       status2: 'No. 14',
       image: '/static/img/sate.png',
-      menu: null,
-      selectedMenus: []
+      menu: [],
+      selectedMenus: [],
+      total: 0,
+      item: 0
     }
   }
 
-  toggleAdd = (menu) => {
+  toggleAdd(menu) {
     let { selectedMenus } = this.state
     let exist = false
-    let indexToBeDeleted
-    console.log('AWAL', selectedMenus)
+    let indexToBeAdded = null
 
     for (let i in selectedMenus) {
+      console.log('Salah')
       if (selectedMenus[i].id === menu.id) {
+        console.log('Bener')
         exist = true
-        indexToBeDeleted = i
+        indexToBeAdded = i
         break
       }
     }
-    console.log('ATAS', selectedMenus, [...selectedMenus, menu])
-    if (!exist)
+     
+    if (!exist) {
+      console.log('0')
+      menu.quantity = 1
       this.setState({selectedMenus: [...selectedMenus, menu]})
-    else {
-      selectedMenus.splice(indexToBeDeleted, 1)
-      this.setState({selectedMenus: selectedMenus.slice()})
-    }
 
-    console.log([...selectedMenus, menu])
+      //Total
+      this.setState((prev) => ({
+        total: prev.total + menu.price
+      })) 
+
+      //Item
+      this.setState((prev) => ({
+        item: prev.item+1
+      })) 
+
+    } else {
+      console.log('+1')
+      selectedMenus[indexToBeAdded].quantity++
+      this.setState({selectedMenus: selectedMenus.slice()})
+      
+      //Total
+      this.setState((prev) => ({
+        total: prev.total + menu.price
+      })) 
+
+      //Item
+      this.setState((prev) => ({
+        item: prev.item+1
+      })) 
+    }
   }
 
   renderMenu () {
@@ -67,9 +92,10 @@ class App extends Component {
         title={data.name}
         sub={data.description}
         add={data.add}
+        quantity={data.quantity}
         price={data.price}
         data={data}
-        toggleAdd={this.toggleAdd}
+        toggleAdd={this.toggleAdd.bind(this)}
       />
     )
   }
@@ -94,6 +120,9 @@ class App extends Component {
           
           <BottomBar 
             image={this.state.image}
+            price={this.state.total}
+            item={this.state.item}
+            {... this.props}
           />
 
         </div>
