@@ -106,10 +106,10 @@ class App extends Component {
         <div className={styles.container}>
           
           <TopBar
-            title={this.state.title}
-            sub={this.state.sub}
-            status1={this.state.status1}
-            status2={this.state.status2}
+            title={this.props.data.name}
+            sub={this.props.data.description}
+            status1={this.props.data.status1}
+            status2={this.props.data.status2}
           />
 
           <LeftBar />

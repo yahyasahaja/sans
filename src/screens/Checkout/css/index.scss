@@ -1,0 +1,15 @@
+.container {
+  text-align: center;
+  max-width: 480px;
+  margin: auto;
+  display: block;
+  background-color: white;
+  height: 100%;
+  z-index: -1;
+
+  .content {
+    padding-top: 103px;
+    padding-bottom: 80px;
+  }
+
+}
