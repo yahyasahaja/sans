@@ -5,8 +5,9 @@ class Cart {
   @observable data = []
 
   indexOf(menu) {
-    for (let i in menu) 
-      if (menu[i].id === menu.id) 
+    let menus = this.data.slice()
+    for (let i in menus) 
+      if (menus[i].id == menu.id)
         return i
   }
 

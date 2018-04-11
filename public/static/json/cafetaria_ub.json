@@ -3,6 +3,8 @@
   "slug": "cafetaria_ub",
   "name": "Cafetaria UB",
   "description": "Jalan Veteran No. 08 Malang, (085851851276)",
+  "status1": "Mr. Zain",
+  "status2": "No. 14",
   "menu": [
     {
       "id": "0",

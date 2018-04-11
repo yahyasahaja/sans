@@ -37,8 +37,6 @@ export default class RestoScan extends Component {
       <Fragment>
         <TopBar
           title={name}
-          status1={this.state.status1}
-          status2={this.state.status2}
         />
 
         <div className={styles.container} >
