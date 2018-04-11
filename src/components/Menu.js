@@ -3,6 +3,8 @@ import { IconButton } from 'react-toolbox/lib/button'
 
 import styles from './css/Menu.scss'
 
+import { cart } from '../services/stores'
+
 export default class Menu extends Component {
   render() {
     return (
@@ -22,7 +24,7 @@ export default class Menu extends Component {
               </div>
             </div>
 
-            <a onClick={ () => this.props.toggleAdd(this.props.data) } >
+            <a onClick={ () => cart.add(this.props.data) } >
               <div className={styles.add}>
                 {this.props.quantity}
                 <IconButton icon='add' style={{ color: 'green', marginTop: '-5px', marginLeft: '5px' }} />

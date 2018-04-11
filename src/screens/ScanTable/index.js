@@ -31,12 +31,12 @@ export default class RestoScan extends Component {
   }
 
   render() {
-    // let { name,  } = this.props.data
+    let { name,  } = this.props.data
 
     return (
       <Fragment>
         <TopBar
-          title='Sans App'
+          title={name}
           status1={this.state.status1}
           status2={this.state.status2}
         />

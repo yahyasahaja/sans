@@ -6,6 +6,7 @@ import axios from 'axios'
 //SCREENS
 import Menu from './screens/Menu'
 import ScanResto from './screens/ScanResto'
+import ScanTable from './screens/ScanTable'
 import Home from './screens/Home'
 import Checkout from './screens/Checkout'
 
@@ -61,6 +62,11 @@ class RestoComponent extends Component {
         <Route 
           path="/:resto_slug/scanresto" 
           render={props => <ScanResto {...props} data={data} />} 
+        />
+
+        <Route 
+          path="/:resto_slug/scantable" 
+          render={props => <ScanTable {...props} data={data} />} 
         />
 
         <Route 

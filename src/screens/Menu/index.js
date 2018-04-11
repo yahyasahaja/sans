@@ -2,6 +2,7 @@
 import React, { Component, Fragment } from 'react'
 import _ from 'lodash'
 import axios from 'axios'
+import { observer } from 'mobx-react'
 
 //ASSETS
 import TopBar from '../../components/TopBar'
@@ -12,11 +13,16 @@ import BottomBar from '../../components/BottomBar'
 //STYLES
 import styles from './css/index.scss'
 
+//STORES
+import { cart } from '../../services/stores'
+
 //COMPONENT
+@observer
 class App extends Component {
   componentDidMount() {
-    axios.get('/static/json/menu.json').then(res => {
-      this.setState({menu: res.data})
+    axios.get('/static/json/menu.json').then(({data}) => {
+      if (data)
+        cart.data = data
     })
   }
 
@@ -35,57 +41,10 @@ class App extends Component {
     }
   }
 
-  toggleAdd(menu) {
-    let { selectedMenus } = this.state
-    let exist = false
-    let indexToBeAdded = null
-
-    for (let i in selectedMenus) {
-      console.log('Salah')
-      if (selectedMenus[i].id === menu.id) {
-        console.log('Bener')
-        exist = true
-        indexToBeAdded = i
-        break
-      }
-    }
-     
-    if (!exist) {
-      console.log('0')
-      menu.quantity = 1
-      this.setState({selectedMenus: [...selectedMenus, menu]})
-
-      //Total
-      this.setState((prev) => ({
-        total: prev.total + menu.price
-      })) 
-
-      //Item
-      this.setState((prev) => ({
-        item: prev.item+1
-      })) 
-
-    } else {
-      console.log('+1')
-      selectedMenus[indexToBeAdded].quantity++
-      this.setState({selectedMenus: selectedMenus.slice()})
-      
-      //Total
-      this.setState((prev) => ({
-        total: prev.total + menu.price
-      })) 
-
-      //Item
-      this.setState((prev) => ({
-        item: prev.item+1
-      })) 
-    }
-  }
-
   renderMenu () {
-    if (!this.state.menu) return
+    if (!cart.data) return
 
-    return _.map(this.state.menu, (data, i) => 
+    return _.map(cart.data, (data, i) => 
       <Menu
         key={i}
         image={data.image_url}
@@ -95,7 +54,6 @@ class App extends Component {
         quantity={data.quantity}
         price={data.price}
         data={data}
-        toggleAdd={this.toggleAdd.bind(this)}
       />
     )
   }
@@ -106,8 +64,8 @@ class App extends Component {
         <div className={styles.container}>
           
           <TopBar
-            title={this.state.title}
-            sub={this.state.sub}
+            title={this.cart.name}
+            sub={this.cart.description}
             status1={this.state.status1}
             status2={this.state.status2}
           />
@@ -120,8 +78,8 @@ class App extends Component {
           
           <BottomBar 
             image={this.state.image}
-            price={this.state.total}
-            item={this.state.item}
+            price={cart.totalPrice}
+            item={cart.totalItem}
             {... this.props}
           />
 

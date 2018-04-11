@@ -16,7 +16,7 @@
     "name": "Soto Lamongan",
     "description": "Daging",
     "price": 10000,
-    "image_url": "/static/img/sate.png",
+    "image_url": "/static/img/soto.png",
     "category": [
       "special"
     ],
@@ -40,7 +40,7 @@
     "name": "Bakso Kotak",
     "description": "Bakso, tahu, dan gorengan",
     "price": 13000,
-    "image_url": "/static/img/sate.png",
+    "image_url": "/static/img/bakso.png",
     "category": [
       "special"
     ],
@@ -52,7 +52,7 @@
     "name": "Kebab Turki",
     "description": "Daging",
     "price": 12000,
-    "image_url": "/static/img/sate.png",
+    "image_url": "/static/img/kebab.png",
     "category": [
       "special"
     ],
@@ -64,7 +64,7 @@
     "name": "Beef Steak",
     "description": "Saos Lada Hitam",
     "price": 17000,
-    "image_url": "/static/img/sate.png",
+    "image_url": "/static/img/steak.png",
     "category": [
       "special"
     ],
@@ -76,7 +76,7 @@
     "name": "Gado Gado",
     "description": "Spesial",
     "price": 10000,
-    "image_url": "/static/img/sate.png",
+    "image_url": "/static/img/gado.png",
     "category": [
       "special"
     ],
@@ -88,7 +88,7 @@
     "name": "Bakso Jumbo",
     "description": "Bakso + Tahu",
     "price": 14000,
-    "image_url": "/static/img/sate.png",
+    "image_url": "/static/img/bakso.png",
     "category": [
       "special"
     ],
@@ -112,7 +112,19 @@
     "name": "Mie Goreng",
     "description": "Mie Instan Goreng",
     "price": 14000,
-    "image_url": "/static/img/sate.png",
+    "image_url": "/static/img/nasgor.png",
+    "category": [
+      "special"
+    ],
+    "add": null,
+    "quantity": null
+  },
+  {
+    "id": "9",
+    "name": "Nasi Goreng",
+    "description": "Telur Goreng",
+    "price": 14000,
+    "image_url": "/static/img/nasgor.png",
     "category": [
       "special"
     ],
