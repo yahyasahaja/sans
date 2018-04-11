@@ -13,4 +13,4 @@ export default class PaymentMethod extends Component {
       </Fragment>
     )
   }
-}
+} 
