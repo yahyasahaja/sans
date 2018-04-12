@@ -1,13 +1,13 @@
 //MODULES
 import React, { Component } from 'react'
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import axios from 'axios'
 
 //SCREENS
 import Menu from './screens/Menu'
 import ScanResto from './screens/ScanResto'
 import ScanTable from './screens/ScanTable'
-import Home from './screens/Home'
+// import Home from './screens/Home'
 import Checkout from './screens/Checkout'
 import PaymentMethod from './screens/PaymentMethod'
 import DetailOrder from './screens/DetailOrder'
@@ -34,10 +34,10 @@ class RestoComponent extends Component {
 
   checkForSlugUpdate(resto_slug) {
     if (resto_slug == this.state.resto_slug) return
-    
-    this.setState({loading: true}, async () => {
+
+    this.setState({ loading: true }, async () => {
       let { data } = await axios.get(`/static/json/${resto_slug}.json`)
-      this.setState({data, loading: false, resto_slug})
+      this.setState({ data, loading: false, resto_slug })
     })
   }
 
@@ -48,7 +48,7 @@ class RestoComponent extends Component {
   }
 
   renderRoute() {
-    let { data, loading, resto_slug } = this.state
+    let { data, loading } = this.state
 
     //if loading, show splashscreen
     if (loading) return (
@@ -61,42 +61,36 @@ class RestoComponent extends Component {
 
     return (
       <Switch>
-        <Route 
-          path="/:resto_slug/scanresto" 
-          render={props => <ScanResto {...props} data={data} />} 
+        <Route
+          path="/:resto_slug/scantable"
+          render={props => <ScanTable {...props} data={data} />}
         />
 
-        <Route 
-          path="/:resto_slug/scantable" 
-          render={props => <ScanTable {...props} data={data} />} 
-        />
-
-        <Route 
+        <Route
           path="/:resto_slug/menu"
-          render={props => <Menu {...props} data={data} />} 
+          render={props => <Menu {...props} data={data} />}
         />
 
-        <Route 
+        <Route
           path="/:resto_slug/checkout"
-          render={props => <Checkout {...props} data={data} />} 
+          render={props => <Checkout {...props} data={data} />}
         />
 
-        <Route 
+        <Route
           path="/:resto_slug/paymentmethod"
-          render={props => <PaymentMethod {...props} data={data} />} 
+          render={props => <PaymentMethod {...props} data={data} />}
         />
 
-        <Route 
+        <Route
           path="/:resto_slug/detailorder"
-          render={props => <DetailOrder {...props} data={data} />} 
+          render={props => <DetailOrder {...props} data={data} />}
         />
 
-        <Redirect from="*" exact to={`/${resto_slug}/scanresto`} />
       </Switch>
     )
   }
 
-  render() { 
+  render() {
     return (
       <div className={styles.container} >
         {this.renderRoute()}
@@ -117,9 +111,11 @@ export default class AppRouter extends Component {
     return (
       <BrowserRouter>
         <Switch>
-          <Redirect from="/" exact to="/home" />
-          <Route path="/home" exact component={Home} />
           <Route path="/:resto_slug" component={RestoComponent} />
+          <Route
+            path="/"
+            render={props => <ScanResto {...props} />}
+          />
         </Switch>
       </BrowserRouter>
     )

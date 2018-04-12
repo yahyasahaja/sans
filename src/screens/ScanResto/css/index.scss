@@ -1,11 +1,20 @@
 .container {
   display: block;
-  padding-top: 20vh;
+  width: 100%;
+  max-width: 480px;
+  margin: auto;
+  min-height: 100vh;
+  background: white;
 
-  h1 {
-    font-size: 24px;
-    font-weight: 700;
-    text-align: center;
-    padding-top: 2vh;
+  .content {
+    width: 100%;
+    padding-top: 20vh;
+
+    h1 {
+      font-size: 24px;
+      font-weight: 700;
+      text-align: center;
+      padding-top: 2vh;
+    }
   }
 }

@@ -1,5 +1,5 @@
 //MODULES
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import QrReader from 'react-qr-reader'
 
 //STYLES
@@ -13,9 +13,8 @@ export default class RestoScan extends Component {
   handleScan = data => {
     if (data) {
       console.log(data)
-      this.setState({
-        result: data,
-      })
+      if (data === 'scanresto')
+        this.props.history.push('/cafetaria_ub/scantable')
     }
   }
 
@@ -34,14 +33,14 @@ export default class RestoScan extends Component {
     // let { name,  } = this.props.data
 
     return (
-      <Fragment>
+      <div className={styles.container} >
         <TopBar
           title='Sans App'
           status1= 'Login'
           status2= 'or Sign Up'
         />
 
-        <div className={styles.container} >
+        <div className={styles.content} >
           <QrReader
             delay={this.state.delay}
             onError={this.handleError}
@@ -50,7 +49,7 @@ export default class RestoScan extends Component {
           />
           <h1>Scan a Restaurant QR Code</h1>
         </div>
-      </Fragment>
+      </div>
     )
   }
 }

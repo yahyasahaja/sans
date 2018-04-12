@@ -13,9 +13,8 @@ export default class RestoScan extends Component {
   handleScan = data => {
     if (data) {
       console.log(data)
-      this.setState({
-        result: data,
-      })
+      if (data === 'scantable')
+        this.props.history.push(`/${this.props.match.params.resto_slug}/menu`)
     }
   }
 
