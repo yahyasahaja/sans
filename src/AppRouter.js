@@ -55,7 +55,7 @@ class RestoComponent extends Component {
     let { data, loading, next } = this.state
 
     //if loading, show splashscreen
-    if (loading && next) return (
+    if (loading || !next) return (
       <div style={{
         width: '100%',
         maxWidth: '480px',
@@ -66,7 +66,7 @@ class RestoComponent extends Component {
       }} >
         <img style={{width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center'}} src="/static/img/bg.png" alt=""/>
         <div style={{width: '100%', minHeight: '100vh', background: 'black', opacity: .5, position: 'absolute'}} />
-        <span style={{position: 'absolute', color: 'white', fontSize: '30pt', fontWeight: 900}} >SANS APP</span>
+        <span style={{position: 'absolute', color: 'white', fontSize: '30pt', fontWeight: 900}} >CAFETARIA UB</span>
       </div>
     )
 
