@@ -16,7 +16,7 @@ export default class TopBar extends Component {
           </div>
           <div className={styles.user}>
             <div>Mr/Mrs. {user.name}</div>
-            <div>{this.props.status2}</div>
+            <div>No. {this.props.status2}</div>
           </div>
         </header>
       </div>

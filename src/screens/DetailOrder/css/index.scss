@@ -8,8 +8,34 @@
   z-index: -1;
 
   .content {
-    padding-top: 103px;
+    padding-top: 120px;
     padding-bottom: 80px;
+    font-size: 14pt;
+
+    h1 {
+      font-size: 14pt;
+      font-weight: 900;
+    }
+
+    .qrcode {
+      margin: 20px;
+    }
+
+    .status1, .status2, .status3, {
+      margin: 20px;
+    }
+
+    .add {
+      color:#2ecc71;
+      font-weight: 900;
+      cursor: pointer;
+      transition: .3s;
+
+      &:active {
+        opacity: .3 ;
+        transition: .1s;
+      }
+    }
   }
 
 }
