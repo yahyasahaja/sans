@@ -26,7 +26,6 @@ class App extends Component {
             status1={this.props.data.status1}
             status2={this.props.data.status2}
           />
-          
 
         </div>
       </Fragment>

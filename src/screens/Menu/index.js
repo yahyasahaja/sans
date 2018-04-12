@@ -3,6 +3,7 @@ import React, { Component, Fragment } from 'react'
 import _ from 'lodash'
 import axios from 'axios'
 import { observer } from 'mobx-react'
+import Input from 'react-toolbox/lib/input'
 
 //ASSETS
 import TopBar from '../../components/TopBar'
@@ -14,7 +15,7 @@ import BottomBar from '../../components/BottomBar'
 import styles from './css/index.scss'
 
 //STORES
-import { cart } from '../../services/stores'
+import { cart, user } from '../../services/stores'
 
 //COMPONENT
 @observer
@@ -37,7 +38,8 @@ class App extends Component {
       menu: [],
       selectedMenus: [],
       total: 0,
-      item: 0
+      item: 0,
+      opened: !user.name,
     }
   }
 
@@ -66,7 +68,7 @@ class App extends Component {
           <TopBar
             title={this.props.data.name}
             sub={this.props.data.description}
-            status1={this.props.data.status1}
+            status1={user.name}
             status2={this.props.data.status2}
           />
 
@@ -82,7 +84,33 @@ class App extends Component {
             item={cart.totalItem}
             {... this.props}
           />
+        </div>
 
+        <div style={{display: this.state.opened ? 'block' : 'none'}} className={styles.overlay} >
+          <div className={styles.wrapper} >
+            <div className={styles.up} >
+              <h1 className={styles.title} >Informasi Pemesan</h1>
+              <div className={styles.center} >
+                <div>Masukkan Nama: </div>
+                <Input 
+                  value={user.name}
+                  label="Nama Pemesan"
+                  required
+                  onChange={val => user.name = val}
+                />
+              </div>
+
+              <span>Nama pemesan digunakan agar mempermudah pelayanan kami kepada pembeli. </span>
+            </div>
+
+            <div className={styles.down} >
+              <button
+                onClick={() => this.setState({opened: false})}
+              >
+                NEXT
+              </button>
+            </div>
+          </div>
         </div>
       </Fragment>
     )

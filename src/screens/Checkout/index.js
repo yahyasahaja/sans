@@ -9,7 +9,7 @@ import TopBar from '../../components/TopBar'
 import styles from './css/index.scss'
 
 //STORE
-import { cart } from '../../services/stores'
+import { cart, user } from '../../services/stores'
 
 //COMPONENT
 @observer
@@ -91,7 +91,7 @@ class App extends Component {
         <TopBar
           title={this.props.data.name}
           sub={this.props.data.description}
-          status1={this.props.data.status1}
+          status1={user.name}
           status2={this.props.data.status2}
         />
 

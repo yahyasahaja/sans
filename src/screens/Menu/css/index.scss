@@ -7,8 +7,62 @@
   z-index: -1;
 
   .content {
-    padding-top: 103px;
+    padding-top: 110px;
     padding-bottom: 80px;
   }
+}
 
+.overlay {
+  position: fixed; /* Sit on top of the page content */
+  display: block; /* Hidden by default */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0; 
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+
+  .wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    .up {
+      padding: 20px;
+      background: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      h1 {
+        font-weight: 900;
+      }
+      
+      .center {
+        margin: 50px 0;
+      }
+    }
+
+    .down {
+      
+      button {
+        width: 100%;
+        background: black;
+        color: white;
+        text-align: center;
+        border: none;
+        padding: 15px;
+        transition: .3s;
+        cursor: pointer;
+        
+        &:active {
+          opacity: .5;
+          transition: .1s;
+        }
+      }
+    }
+  }
 }

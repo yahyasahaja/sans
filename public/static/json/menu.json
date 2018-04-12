@@ -9,7 +9,7 @@
       "special"
     ],
     "add": null,
-    "quantity": 2
+    "quantity": null
   },
   {
     "id": "1",
@@ -21,7 +21,7 @@
       "special"
     ],
     "add": null,
-    "quantity": 1
+    "quantity": null
   },
   {
     "id": "2",
@@ -33,7 +33,7 @@
       "special"
     ],
     "add": null,
-    "quantity": 1
+    "quantity": null
   },
   {
     "id": "3",
@@ -45,7 +45,7 @@
       "special"
     ],
     "add": null,
-    "quantity": 1
+    "quantity": null
   },
   {
     "id": "4",
