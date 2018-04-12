@@ -48,6 +48,7 @@ export default class RestoScan extends Component {
             onScan={this.handleScan}
             style={{ width: '100%', }}
           />
+          <h1>Scan a Restaurant QR Code</h1>
         </div>
       </Fragment>
     )
