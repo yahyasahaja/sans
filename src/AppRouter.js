@@ -1,6 +1,6 @@
 //MODULES
 import React, { Component } from 'react'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 import axios from 'axios'
 
 //SCREENS
@@ -37,6 +37,9 @@ class RestoComponent extends Component {
 
     this.setState({ loading: true }, async () => {
       let { data } = await axios.get(`/static/json/${resto_slug}.json`)
+      setTimeout(() => {
+        this.setState({next: true})
+      }, 2000)
       this.setState({ data, loading: false, resto_slug })
     })
   }
@@ -45,15 +48,25 @@ class RestoComponent extends Component {
     resto_slug: '',
     data: null,
     loading: true,
+    next: false
   }
 
   renderRoute() {
-    let { data, loading } = this.state
+    let { data, loading, next } = this.state
 
     //if loading, show splashscreen
-    if (loading) return (
-      <div>
-        splash
+    if (loading && next) return (
+      <div style={{
+        width: '100%',
+        maxWidth: '480px',
+        height: '100vh',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+      }} >
+        <img style={{width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center'}} src="/static/img/bg.png" alt=""/>
+        <div style={{width: '100%', minHeight: '100vh', background: 'black', opacity: .5, position: 'absolute'}} />
+        <span style={{position: 'absolute', color: 'white', fontSize: '30pt', fontWeight: 900}} >SANS APP</span>
       </div>
     )
 
@@ -111,6 +124,7 @@ export default class AppRouter extends Component {
     return (
       <BrowserRouter>
         <Switch>
+          <Redirect path="/home" to="/" />
           <Route path="/:resto_slug" component={RestoComponent} />
           <Route
             path="/"
