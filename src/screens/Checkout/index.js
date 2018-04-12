@@ -42,6 +42,13 @@ class App extends Component {
               <div className={styles.qty} >
                 <span className={styles.quantity} >
                   {data.quantity}
+
+                  <div 
+                    className={styles.minus}
+                    onClick={() => cart.remove(data)}
+                  >
+                    -
+                  </div>
                 </span>
 
                 <span className={styles.price} >
@@ -66,7 +73,7 @@ class App extends Component {
                   )
                   : (
                     <div className={styles.note} >
-                      <textarea ref={el => this.note[i] = el} 
+                      <textarea ref={el => this.note[i] = el}
                         placeholder="Note this menu ..." rows="2"
                         value={data.note || ''}
                         onChange={e => {
@@ -78,7 +85,7 @@ class App extends Component {
                     </div>
                   )
               }
-              
+
             </div>
           </div>
         </div>
@@ -102,8 +109,8 @@ class App extends Component {
 
         <div className={styles['bottom-bar']} >
           <div className={styles.up} >
-            <div 
-              className={styles['menu-button']} 
+            <div
+              className={styles['menu-button']}
               onClick={() => {
                 this.props.history.push(`/${this.props.match.params.resto_slug}/menu`)
               }}
