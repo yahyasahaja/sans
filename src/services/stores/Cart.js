@@ -2,7 +2,7 @@
 import { observable, computed } from 'mobx'
 
 class Cart {
-  @observable data = []
+  @observable data = null
 
   indexOf(menu) {
     let menus = this.data.slice()
@@ -31,11 +31,13 @@ class Cart {
 
   @computed
   get totalPrice() {
+    if (!this.data) return 0
     return this.data.reduce((prev, cur) => prev + cur.price * cur.quantity, 0)
   }
   
   @computed
   get totalItem() {
+    if (!this.data) return 0
     return this.data.reduce((prev, cur) => prev + cur.quantity, 0)
   }
 }
