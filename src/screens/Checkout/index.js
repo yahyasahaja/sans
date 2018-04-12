@@ -1,6 +1,5 @@
 //MODULES
 import React, { Component } from 'react'
-import axios from 'axios'
 import { observer } from 'mobx-react'
 
 //ASSETS
@@ -15,13 +14,6 @@ import { cart } from '../../services/stores'
 //COMPONENT
 @observer
 class App extends Component {
-  componentDidMount() {
-    axios.get('/static/json/menu.json').then(({ data }) => {
-      if (data)
-        cart.data = data
-    })
-  }
-
   note = []
 
   renderList() {

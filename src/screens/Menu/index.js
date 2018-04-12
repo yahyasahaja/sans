@@ -21,7 +21,7 @@ import { cart } from '../../services/stores'
 class App extends Component {
   componentDidMount() {
     axios.get('/static/json/menu.json').then(({data}) => {
-      if (data)
+      if (data && !cart.data)
         cart.data = data
     })
   }
