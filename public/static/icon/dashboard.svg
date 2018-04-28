@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="1457 -917 25 25">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <g id="dashboard" transform="translate(1457 -917)">
+    <path id="Path_125" data-name="Path 125" class="cls-1" d="M0,0H25V25H0Z"/>
+    <path id="Path_126" data-name="Path 126" class="cls-2" d="M3,13.417h8.333V3H3ZM3,21.75h8.333V15.5H3Zm10.417,0H21.75V11.333H13.417Zm0-18.75V9.25H21.75V3Z" transform="translate(0.125 0.125)"/>
+  </g>
+</svg>
