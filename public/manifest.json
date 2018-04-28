@@ -1,21 +1,21 @@
 {
-  "short_name": "My First PWA",
-  "name": "My First Progressive Web App",
+  "short_name": "Sans",
+  "name": "Sans Application",
   "icons": [
     {
-      "src":"/icon/react-logo-192.png",
-      "sizes": "192x192",
+      "src":"/static/icon/favicon-196x196.png",
+      "sizes": "196x196",
       "type": "image/png"
     },
     {
-      "src":"/icon/react-logo-512.png",
+      "src":"/static/icon/logo-512.png",
       "sizes": "512x512",
       "type": "image/png"
     }
   ],
-  "start_url": "/?utm_source=homescreen",
-  "background_color": "#1abc9c",
-  "theme_color": "#1abc9c",
+  "start_url": "/home",
+  "background_color": "#076645",
+  "theme_color": "#076645",
   "display": "standalone",
   "gcm_sender_id": "855318645063"
 }
