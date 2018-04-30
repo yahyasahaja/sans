@@ -97,7 +97,7 @@ class RestoComponent extends Component {
         <Route 
           path="/:resto_slug/detailorder"
           render={props => <DetailOrder {...props} data={data} />}
-        />
+        /> 
  
       </Switch>
     )
