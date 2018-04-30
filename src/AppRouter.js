@@ -92,7 +92,7 @@ class RestoComponent extends Component {
         <Route
           path="/:resto_slug/paymentmethod"
           render={props => <PaymentMethod {...props} data={data} />}
-        />
+        /> 
  
         <Route
           path="/:resto_slug/detailorder"
