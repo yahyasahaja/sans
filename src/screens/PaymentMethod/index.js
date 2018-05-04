@@ -20,18 +20,12 @@ export default class PaymentMethod extends Component {
   }
 
   render() {
-    let { name,  } = this.props.data
     let toLink = `/${this.props.match.params.resto_slug}/detailorder`
 
     return (
       <Fragment>
         <div className={styles.container}>
-          <TopBar
-            title={name}
-            sub={this.props.data.description}
-            status1={this.props.data.status1}
-            status2={this.props.data.status2}
-          />
+          <TopBar />
 
           <div className={styles.content} >
             <h1 className={styles.header} >

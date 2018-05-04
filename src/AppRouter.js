@@ -1,7 +1,7 @@
 //MODULES
 import React, { Component } from 'react'
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
-import axios from 'axios'
+import { observer } from 'mobx-react'
 
 //SCREENS
 import Menu from './screens/Menu'
@@ -16,46 +16,17 @@ import DetailOrder from './screens/DetailOrder'
 import styles from './app-router.scss'
 
 //CONFIG
-import {
-  TOKEN_ADDRESS,
-  END_POINT_URL,
-} from './config'
+import { order, restaurant } from './services/stores'
 
 //COMPONENT
+@observer
 class RestoComponent extends Component {
-  componentWillReceiveProps(nextProps) {
-    this.checkForSlugUpdate(nextProps.match.params.resto_slug)
-  }
-
-  componentDidMount() {
-    console.log(this.props)
-    this.checkForSlugUpdate(this.props.match.params.resto_slug)
-  }
-
-  checkForSlugUpdate(resto_slug) {
-    if (resto_slug == this.state.resto_slug) return
-
-    this.setState({ loading: true }, async () => {
-      let { data } = await axios.get(`/static/json/${resto_slug}.json`)
-      setTimeout(() => {
-        this.setState({next: true})
-      }, 2000)
-      this.setState({ data, loading: false, resto_slug })
-    })
-  }
-
-  state = {
-    resto_slug: '',
-    data: null,
-    loading: true,
-    next: false
-  }
-
   renderRoute() {
-    let { data, loading, next } = this.state
-
+    let loading = order.isLoading || restaurant.isLoading
+    let data = order.data
+    
     //if loading, show splashscreen
-    if (loading || !next) return (
+    if (loading) return (
       <div style={{
         width: '100%',
         maxWidth: '480px',
@@ -76,27 +47,27 @@ class RestoComponent extends Component {
       <Switch>
         <Route
           path="/:resto_slug/scantable"
-          render={props => <ScanTable {...props} data={data} />}
+          render={props => <ScanTable {...props} />}
         />
 
         <Route
           path="/:resto_slug/menu"
-          render={props => <Menu {...props} data={data} />}
+          render={props => <Menu {...props} />}
         />
 
         <Route
           path="/:resto_slug/checkout"
-          render={props => <Checkout {...props} data={data} />}
+          render={props => <Checkout {...props} />}
         />
 
         <Route
           path="/:resto_slug/paymentmethod"
-          render={props => <PaymentMethod {...props} data={data} />}
+          render={props => <PaymentMethod {...props} />}
         /> 
  
         <Route 
           path="/:resto_slug/detailorder"
-          render={props => <DetailOrder {...props} data={data} />}
+          render={props => <DetailOrder {...props} />}
         /> 
  
       </Switch>
@@ -113,13 +84,6 @@ class RestoComponent extends Component {
 }
 
 export default class AppRouter extends Component {
-  componentWillMount() {
-    axios.defaults.headers.post['Content-Type'] = 'application/json'
-    axios.defaults.baseURL = END_POINT_URL
-    if (localStorage.getItem(TOKEN_ADDRESS))
-      axios.defaults.headers.common['Authorization'] = localStorage.getItem(TOKEN_ADDRESS)
-  }
-
   render() {
     return (
       <BrowserRouter>

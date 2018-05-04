@@ -10,10 +10,10 @@ export default class LeftBar extends Component {
       <Fragment>
         <CardActions className={styles.leftBar} >
           <Link className={styles.categories} href='#' active label='SPECIAL' />
-          <Link className={styles.categories} href='#' label='SOUPS' />
-          <Link className={styles.categories} href='#' label='PASTA' />
-          <Link className={styles.categories} href='#' label='WRAPS' />
-          <Link className={styles.categories} href='#' label='DRINK' />
+          <Link className={styles.categories} href='#' label='MURAH' />
+          <Link className={styles.categories} href='#' label='DAGING' />
+          <Link className={styles.categories} href='#' label='AYAM' />
+          <Link className={styles.categories} href='#' label='MINUMAN' />
         </CardActions>
       </Fragment>
     )

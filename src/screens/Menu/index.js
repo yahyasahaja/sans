@@ -1,7 +1,6 @@
 //MODULES
 import React, { Component, Fragment } from 'react'
 import _ from 'lodash'
-import axios from 'axios'
 import { observer } from 'mobx-react'
 import Input from 'react-toolbox/lib/input'
 
@@ -21,35 +20,26 @@ import { cart, user } from '../../services/stores'
 @observer
 class App extends Component {
   componentDidMount() {
-    axios.get('/static/json/menu.json').then(({data}) => {
-      if (data && !cart.data)
-        cart.data = data
-    })
+    console.log(cart.checkedout)
+    if (cart.checkedout)
+      this.props.history.push(`/${this.props.match.params.resto_slug}/paymentmethod`)
   }
 
-  constructor(props) {
-    super(props)
-    this.state = {
-      title: 'Sans Resto',
-      sub: 'Jalan Veteran Nomor 10, Malang (083243785475)',
-      status1: 'Mr. Zain',
-      status2: 'No. 14',
-      image: '/static/img/sate.png',
-      menu: [],
-      selectedMenus: [],
-      total: 0,
-      item: 0,
-      opened: !user.name,
-    }
+  state = {
+    menu: [],
+    selectedMenus: [],
+    total: 0,
+    item: 0,
+    opened: !user.name,
   }
 
   renderMenu () {
-    if (!cart.data) return
+    if (!cart.menus) return
 
-    return _.map(cart.data, (data, i) => 
+    return _.map(cart.menus, (data, i) => 
       <Menu
         key={i}
-        image={data.image_url}
+        image={data.image}
         title={data.name}
         sub={data.description}
         add={data.add}
@@ -61,17 +51,12 @@ class App extends Component {
   }
 
   render() {
+    cart.checkedout
     return (
       <Fragment>
         <div className={styles.container}>
           
-          <TopBar
-            title={this.props.data.name}
-            sub={this.props.data.description}
-            status1={user.name}
-            status2={this.props.data.status2}
-          />
-
+          <TopBar />
           <LeftBar />
 
           <div className={styles.content} >

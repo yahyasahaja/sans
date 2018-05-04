@@ -10,7 +10,7 @@ import TopBar from '../../components/TopBar'
 import styles from './css/index.scss'
 
 //STORES
-import { user, cart } from '../../services/stores'
+import { user, cart, order } from '../../services/stores'
 
 //COMPONENT
 class App extends Component {
@@ -24,12 +24,7 @@ class App extends Component {
     return (
       <Fragment>
         <div className={styles.container}>
-          <TopBar
-            title={this.props.data.name}
-            sub={this.props.data.description}
-            status1={this.props.data.status1}
-            status2={this.props.data.status2}
-          />
+          <TopBar />
 
           <div className={styles.content} >
             <div><h1>Lakukan Pembayaran Sekarang ke Kasir</h1></div>
@@ -45,7 +40,7 @@ class App extends Component {
             
             <div className={styles.status2} >
               <div>Mr/Mrs. {user.name}</div>
-              <div>No Meja {this.props.data.status2}</div>
+              <div>No Meja {order.data.table_id}</div>
             </div>
 
             <div className={styles.status3} >

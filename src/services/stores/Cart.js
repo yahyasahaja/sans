@@ -1,44 +1,54 @@
 //MODULES
 import { observable, computed } from 'mobx'
 
+//STORE
+import restaurant from './Restaurant'
+
 class Cart {
-  @observable data = null
+  @observable menus = null
+  @observable checkedout = false
 
   indexOf(menu) {
-    let menus = this.data.slice()
+    let menus = this.menus.slice()
     for (let i in menus) 
       if (menus[i].id == menu.id)
         return i
   }
 
   add(menu) {
-    let selectedMenus = this.data.slice()
+    let selectedMenus = this.menus.slice()
     let indexToBeAdded = this.indexOf(menu)
     
-    if (selectedMenus[indexToBeAdded].quantity === null) selectedMenus[indexToBeAdded].quantity = 1
+    if (selectedMenus[indexToBeAdded].quantity === undefined) selectedMenus[indexToBeAdded].quantity = 1
     else selectedMenus[indexToBeAdded].quantity++
-    this.data = observable(selectedMenus.slice())
+    
+    this.menus = observable(selectedMenus.slice())
   }
 
   remove(menu) {
-    let selectedMenus = this.data.slice()
+    let selectedMenus = this.menus.slice()
     let indexToBeRemoved = this.indexOf(menu)
 
     selectedMenus[indexToBeRemoved].quantity--
     if (selectedMenus[indexToBeRemoved].quantity === 0) selectedMenus[indexToBeRemoved].quantity = null
-    this.data = observable(selectedMenus.slice())
+    this.menus = observable(selectedMenus.slice())
   }
 
   @computed
   get totalPrice() {
-    if (!this.data) return 0
-    return this.data.reduce((prev, cur) => prev + cur.price * cur.quantity, 0)
+    if (!this.menus) return 0
+    return this.menus.slice().reduce((prev, cur) => prev + cur.price * (cur.quantity || 0), 0)
   }
   
   @computed
   get totalItem() {
-    if (!this.data) return 0
-    return this.data.reduce((prev, cur) => prev + cur.quantity, 0)
+    if (!this.menus) return 0
+    return this.menus.slice().reduce((prev, cur) => prev + (cur.quantity || 0), 0)
+  }
+
+  @computed
+  get isLoading() {
+    return restaurant.isLoading
   }
 }
 
