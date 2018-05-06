@@ -24,6 +24,8 @@ export default class RestoScan extends Component {
       if (loading) return
 
       this.setState({ loading: true }, () => {
+        token.removeToken()
+
         axios.post(GRAPHQL_END_POINT, {
           query: `
             mutation {
